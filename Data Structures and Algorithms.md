@@ -524,7 +524,7 @@ p.pop();
 
 **Visualization:**
 
-![BinarySearch](Searching/Animations/Binary Search.gif)
+![BinarySearch](https://github.com/jumzzz/cpp-cheat-sheet/blob/master/Searching/Animations/Binary%20Search.gif?raw=true)
 -------------------------------------------------------
 ### 2.4 Depth-First Search
 **Idea:**
@@ -544,7 +544,7 @@ p.pop();
 
 **Visualization:**
 
-![DepthFirstSearch](Searching/Animations/Depth-First Search.gif)
+![DepthFirstSearch](https://github.com/jumzzz/cpp-cheat-sheet/blob/master/Searching/Animations/Depth-First%20Search.gif?raw=true)
 -------------------------------------------------------
 ### 2.5 Breadth-First Search
 **Idea:**
@@ -563,7 +563,7 @@ p.pop();
 
 **Visualization:**
 
-![DepthFirstSearch](Searching/Animations/Breadth-First Search.gif)
+![DepthFirstSearch](https://github.com/jumzzz/cpp-cheat-sheet/blob/master/Searching/Animations/Breadth-First%20Search.gif?raw=true)
 -------------------------------------------------------
 ## 3.0 NP Complete Problems
 ### 3.1 NP Complete
@@ -613,7 +613,7 @@ p.pop();
 
 **Visualization**
 
-![InsertionSort](Sorting/Animations/Insertion Sort.gif)
+![InsertionSort](https://github.com/jumzzz/cpp-cheat-sheet/blob/master/Sorting/Animations/Insertion%20Sort.gif?raw=true)
 -------------------------------------------------------
 ### 4.2 Selection Sort
 **Idea:**
@@ -646,9 +646,9 @@ p.pop();
 
 **Visualization**
 
-![SelectionSort](Sorting/Animations/Selection Sort.gif)
+![SelectionSort](https://github.com/jumzzz/cpp-cheat-sheet/blob/master/Sorting/Animations/Selection%20Sort.gif?raw=true)
 
-![SelectionSort](Sorting/Animations/Selection Sort 2.gif)
+![SelectionSort](https://github.com/jumzzz/cpp-cheat-sheet/blob/master/Sorting/Animations/Selection%20Sort%202.gif?raw=true)
 -------------------------------------------------------
 ### 4.3 Bubble Sort
 **Idea:**
@@ -681,7 +681,7 @@ p.pop();
 
 **Visualization**
 
-![BubbleSort](Sorting/Animations/Bubble Sort.gif)
+![BubbleSort](https://github.com/jumzzz/cpp-cheat-sheet/blob/master/Sorting/Animations/Bubble%20Sort.gif?raw=true)
 -------------------------------------------------------
 ### 4.4 Merge Sort
 **Idea:**
@@ -716,9 +716,9 @@ p.pop();
 
 **Visualization**
 
-![MergeSort](Sorting/Animations/Merge Sort.gif)
+![MergeSort](https://github.com/jumzzz/cpp-cheat-sheet/blob/master/Sorting/Animations/Merge%20Sort.gif?raw=true)
 
-![MergeSort](Sorting/Animations/Merge Sort 2.gif)
+![MergeSort](https://github.com/jumzzz/cpp-cheat-sheet/blob/master/Sorting/Animations/Merge%20Sort%202.gif?raw=true)
 -------------------------------------------------------
 ### 4.5 Quicksort
 **Idea:**
