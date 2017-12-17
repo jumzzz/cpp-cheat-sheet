@@ -1,0 +1,119 @@
+Effective STL Summary
+
+1. Choose your containers with care
+   - Every containers have different structures on their own. 
+     Meaning they're designed in a particular set of applications.
+     Though they usually have common interfaces that was set by
+     the Standard Commitee of C++, there are specific containers
+     that are easier to use on problem specific scenarios.
+
+     i.e. vectors have constant time in accessing specific index
+          whereas lists have O(n) time complexity in accessing
+          values.
+
+     TL:DR = It depends on their inherent data structure, it's 
+             time/space complexity for each operations. And each
+	     container types allocates/deallocates memory on 
+             their own.
+
+
+2. Beware of the illusion of container-independent code.
+   - Experience will tell you that its difficult to code 
+     without containers. This item is self explanatory.
+
+3. Make copying cheap & correct for objects in containers.
+   - Each container types have different approaches in allocating
+     memory. Do not pay for something where you don't have to.
+     This also emphasizes the need on grasping the basic mechanism
+     of each container types.
+
+4. Call empty instead of checking size() against zero.
+   - empty() is O(1) and size() is O(n).
+
+5. Prefer range member functions to their single-element
+   counterparts
+   a) Single-element operations (via loop) usually taxes operational
+      costs (i.e. number of steps, memory allocation) than their
+      range counterparts.
+   b) Range member functions are obviously more readable.
+
+6. Be alert for C++'s most vexing parse. 
+   a) One example is when you instantiate an constructor let say
+
+        Widget w();
+    
+       The compiler treats w as a function and not as an object
+       variable.
+   
+   - This are usual subtleties of C++ and I think only experience
+     will only let you understand them more.
+
+7. When using containers of newed pointers, remember to delete
+   them all.
+
+  - Number(new) = Number(delete)
+  - Apply iterative deletes on containers that has unique pointers
+  - Use Smart Pointers for container of pointers if you're not
+    sure if you'll deallocate them all.
+
+8. Never create containers of auto_ptrs
+  - Well, auto_ptr is a failure. Use Smart Pointers from either
+    Boost or Modern C++ instead.
+
+9. Choose carefully among erasing options
+  - Each erasing options have different ways of erasing elements
+    inside their containers. Be aware of their ways of erasing
+    for convenience. #5 can be also applicable on this one.
+
+10. Be aware of allocator conventions & restrictions
+   - I barely understand this. Though I'm now aware with the fact
+     that std::allocator are abstractions of memory allocation/deallocation
+     schemes.
+
+11. Understand legitimate uses of custom allocators
+   - No comment. I'll read it soon.
+
+12. Have realistic expectations about thread safety of STL containers
+    a) Multiple threads reading on a same container are thread safe.
+    b) Multiple threads writing on different containers simulteneously
+       are thread safe.
+
+13. Prefer vector & string to dynamically allocated arrays.
+    - vector & strings offer beyond the functionality that dynamically
+      allocated arrays offer. They offer much cleaner interfaces and 
+      features (i.e. Iterators, range based functions) which you won't
+      find on dynamically allocated arrays. They're also easily convertible
+      to dynamically allocated arrays (i.e. int[] or const char*)
+
+14. Use reserve to avoid unnecessary reallocations
+    - Continuously appending vectors (i.e. single element insertion, push_back)
+      will continuously update its capacity without using reserve(size_t n).
+      This automated update of capacity yields to redundant copying, allocation/      deallocation which can be detrimental with its performance.
+
+      Remember the Philosphy: Don't waste Time and Space -- This is C++
+
+15. Be aware of variations in string implementations
+    - From wstring, string, const char*, basic_string or frameworks 
+      like boost::String , QString and CV::String.. It's pretty
+      obvious many people like to have their own strings.
+
+16. Know how to pass vector & string data to legacy C APIs
+    - Need to ask more?
+     
+      // Vector implementation
+      std::vector<T> v;    
+      T* vptr = &v[0];
+   
+      // String implementation
+      std::string str;
+      const char* cstr = str.c_str();
+     
+17. Use "swap trick" to trim excess capacity
+    - Good thing Modern C++ has this shrink_to_fit() member functions
+      that saves me the trouble of swapping capacity to itself.
+
+
+18. Avoid using std::vector<bool>
+   - You are fake bools! - Donald Trump
+   - Use the likes of std::deque<bool> instead.    
+    
