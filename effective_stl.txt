@@ -1,7 +1,7 @@
 Effective STL Summary
 
 Some Video: https://www.youtube.com/watch?v=5tg1ONG18H8
-
+Some Tips: https://www.reddit.com/r/cscareerquestions/comments/45hh81/experience_aaa_game_development_c/
 1. Choose your containers with care
    - Every containers have different structures on their own. 
      Meaning they're designed in a particular set of applications.
