@@ -3,7 +3,11 @@
 3. What does Effective STL Item 21 really means?
 4. What does Effective STL Item 38 really means?
 5. What does it mean to be Pure Function
-
+6. What does this algorithms do?
+  equal_range
+lower_bound
+upper_bound
+binary_search
 
 
 
