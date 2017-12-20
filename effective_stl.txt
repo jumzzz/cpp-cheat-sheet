@@ -1,3 +1,9 @@
+WARNING: The summary written are my personal simplifications of what I've read with Scott Myers Effective STL book. 
+         I advice you should read the book itself to avoid misrepresentation of his list of advices on
+         how to utilize C++ STL effectively. Some of the simplifications I've written are likely to be erroneous.
+         Reading critically is adviced.  - Jums
+  
+
 Effective STL Summary
 
 Some Video: https://www.youtube.com/watch?v=5tg1ONG18H8
@@ -121,6 +127,7 @@ Some Tips: https://www.reddit.com/r/cscareerquestions/comments/45hh81/experience
    - Use the likes of std::deque<bool> instead.    
 
 19. Understand difference between equality & equivalence
+   (WARNING: THIS CAN BE MISLEADING)
    - The C++ committee doesn't make actual distinction between the two.
    - equality is a == b where as
    - equivalence is !(a < b) && !(b < a)
@@ -131,6 +138,7 @@ Some Tips: https://www.reddit.com/r/cscareerquestions/comments/45hh81/experience
      containers than equality most of the time?
 
 20. Specify comparison types for associative containers of pointers
+   (WARNING: THIS CAN BE MISLEADING)
    - associative containers like set are defined as set<T,Predicate = SomeDefaultPredicate>
    - Those default predicates doesn't necessarily works when T is defined as pointers.
     Hence, it's an imperative for the STL programmer to define comparison type manually
