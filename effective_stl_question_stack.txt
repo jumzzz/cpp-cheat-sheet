@@ -1,0 +1,19 @@
+1. Why does non-inlined functions more costly than inlined functions in C++
+2. Why does equivalence are more suited as function predicate for ordered containers than equality?
+3. What does Effective STL Item 21 really means?
+4. What does Effective STL Item 38 really means?
+5. What does it mean to be Pure Function
+6. What does this algorithms do?
+ - equal_range
+ - lower_bound
+ - upper_bound
+ - binary_search
+
+
+
+
+SOME THING: 
+- There's no such thing as passing a function as a parameter to another function. When we try to pass a
+function as a parameter, compilers silently convert
+the function into a pointer to that function, and it's
+the pointer we actually pass. Hence, the call.
