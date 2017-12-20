@@ -90,7 +90,8 @@ Some Tips: https://www.reddit.com/r/cscareerquestions/comments/45hh81/experience
 14. Use reserve to avoid unnecessary reallocations
     - Continuously appending vectors (i.e. single element insertion, push_back)
       will continuously update its capacity without using reserve(size_t n).
-      This automated update of capacity yields to redundant copying, allocation/      deallocation which can be detrimental with its performance.
+      This automated update of capacity yields to redundant copying, allocation/deallocation 
+      which can be detrimental with its performance.
 
       Remember the Philosphy: Don't waste Time and Space -- This is C++
 
@@ -118,4 +119,149 @@ Some Tips: https://www.reddit.com/r/cscareerquestions/comments/45hh81/experience
 18. Avoid using std::vector<bool>
    - You are fake bools! - Donald Trump
    - Use the likes of std::deque<bool> instead.    
-    
+
+19. Understand difference between equality & equivalence
+   - The C++ committee doesn't make actual distinction between the two.
+   - equality is a == b where as
+   - equivalence is !(a < b) && !(b < a)
+   - algorithms that requires sorting i.e. binary_search, adjacent_find, and 
+     member functions of associative containers such as find, find_if uses
+     equivalence instead of equality
+   - equivalence are far more "suited" in ordered containers or associative
+     containers than equality most of the time?
+
+20. Specify comparison types for associative containers of pointers
+   - associative containers like set are defined as set<T,Predicate = SomeDefaultPredicate>
+   - Those default predicates doesn't necessarily works when T is defined as pointers.
+    Hence, it's an imperative for the STL programmer to define comparison type manually
+    for their associative container/s of pointers.
+
+21. Always have comparison functions return false for equal values
+   
+   (WARNING: Explanation might be misleading)
+   - Since it was stated that Associative containers follows equivalence on its comparison
+     functions, we have to be sure that it must be followed that's why returning equals as 
+     false is necessary.
+
+22. Avoid in-place key modification in set & multi-set.
+
+   - By default, set & multi-set are automatically sorted -- modifying in-place key can
+     corrupt set & multi-set since you're changing its value which is already sorted.
+
+23. Consider replacing associative containers with sorted vectors.
+
+   - There are STL algorithms that actually works well with sorted vectors compared
+     to associative containers like set. It's a matter of taste and design preference.
+
+     Therefore: If it can make things simpler consider it.
+
+24. Choose carefully between map::operator[] & map-insert when efficiency is important.
+
+   - On inserting new <Key,Values> on maps map::insert is much more efficient.
+   - On modifying existing <Key,Values> using operator [] is much more efficient. 
+
+25. Familiarize yourself with nonstandard hashed containers.
+
+  - Hash containers are really worth it since many of its average operations are done in 
+    constant time O(1) and its worst complexity are usually O(n).
+  - Hash containers have its implementation in Boost, if your compiler is C++98 or lower
+  - unordered_map<T> is the current hashed container for Modern C++ (11 and up).
+
+26. Prefer iterator to const_interator, reverse_iterator & const_reverse_iterator
+
+  - It's easier to convert iterator to const_iterator, reverse_iterator & const_reverse_iterator.
+    The other way around is much more difficult.
+
+  - Most of the STL algorithms accepts iterator as its range arguments.
+
+27.  Use distance & advance to convert container's const_iterators to iterators
+   
+   - This is the proper way of doing it.
+   - Don't use casting fool! These are different classes and not related via inheritance.
+
+28. Understand how to use reverse_iterator's base iterator.
+
+   - Its base iterator is an iterator. If you try to convert reverse_iterator to it's base 
+     iterator, and apply it as range argument for your STL algorithm of choice, you will not
+     observe the same behavior that reverse_iterator exhibits. I've tried it and experienced
+     a buffer overflow error.
+
+29. Consider istreambuf_iterators for character-by-character input
+   
+   - It's by far more effective compared to its istream_iterator counterpart.
+
+30. Make sure destination ranges are big enough
+  
+   - Self explanatory. You want to apply an algorithm which in-scope with your problem specifications.
+
+31. Know your sorting options.
+
+   - There are sort, stable_sort, partial_sort, etc. which has their own advantage and disadvantages
+     when it comes to performance. Know them well so you can apply them right depending on the specifications
+     of the problem you're seeking to solve.
+
+32.  Follow remove-like algorithms by erase if your really want to remove something.
+  
+   - "remove" is weird. It just returning an iterator where elements you want to removed are
+      just "marked". If you want to remove it completely, you have to follow it with erase.
+      This is true on contiguous type containers like vectors.
+
+33.  Be wary of remove-like algorithms on containers of pointers.
+  
+   - When you add a pointer inside a containers, you're just adding its memory address. You don't
+     allocate them inside of the container.
+   - You don't necessarily deallocate those memory when you apply remove and erase. 
+   - Make sure you apply deletion on raw pointers inside your container "BEFORE" deleting 
+     them.
+
+34. Note which algorithms expect sorted ranges
+   
+  - Some STL algorithms that guarantees O(nlog(n)) -- but you have to sort them first so these 
+    STL algorithms behave properly like binary_search, adjacent_find, etc.
+  - There are also STL algorithms that will still behave right if they're not sorted BUT will be 
+    more effective if you sort the container that you'll apply (i.e. unique).
+
+35. Implement simple case-insensitive string comparisons via mismatch or lexicographical compare
+   - Again, these is where equivalance comes again.
+   - lexicographical compare are just used for strings (WARNING: might be misleading)
+
+36. Understand the proper implementation of copy_if.
+   - copy_if is just copy with steroids. Nah jst kidding.
+   - it generates a list of copy under specific conditions (WARNING: might be misleading)
+
+37. Use accumulate or for_each to summarize ranges.
+   - Well, accumulate is pretty much useful if you apply a cascading operations on ranges.
+   - for_each is pampapogi, meaning you can do some one liner loop operations without writing
+     an actual loop. Well, it's a range based loop and range based counter-parts are usually
+     cleaner and more effective than it's single element based loops. Check Item #5.
+
+38. Design functor classes for pass-by-value
+   (WARNING: Explanation might be misleading)
+   - So you won't have to modify it inside of a Functor class.
+
+39. Make predicate pure functions
+   (WARNING: THIS WILL BE A QUESTION)
+   - What the fuck is a pure function??
+
+40. Make functor classes adaptable
+   (WARNING: THIS WILL BE A QUESTION)
+   - How to make them fucking adaptable??
+
+41. Understand the reasons for ptr_fun, mem_fun, and mem_fun_ref
+   (WARNING: THIS CAN BE MISLEADING)
+   - These are abstractions in order to convert functions like function pointers as predicates.
+
+42. Make sure less<T> means operator<
+   (WARNING: THIS CAN BE MISLEADING)
+   - The fuck, you can confuse template declarations to less or greater than! 
+
+43. Prefer algorithm calls to hand-written loops.
+   - To avoid re-inventing the wheel.
+   - It's much more readable.
+   - More likely to be faster.
+   - Follows Item #5.
+
+44. Prefer member functions to algorithms with the same names
+   - member functions usually inlined compared functions that are located in scope.
+
+45. 
