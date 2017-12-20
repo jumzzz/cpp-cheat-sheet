@@ -1,0 +1,10 @@
+Blogs:
+
+Title: Enforcing Code Feature Requirements in C++
+Author: Scott Meyers
+Link: http://www.artima.com/cppsource/codefeaturesP.html
+
+
+
+Books: 
+Modern C++ Design: Generic Programming and Design Patterns Applied
