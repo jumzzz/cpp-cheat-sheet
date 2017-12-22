@@ -1,0 +1,14 @@
+1. What is an object file?
+2. What is static objects?
+3. What does it mean when a variable or an object T was
+   declared as an reference T& t?
+4. How does compiler silently writes the functions of 
+   derived classes?
+5. What's the difference between public inheritance vs
+   private ones?
+6. Can you write definitions for a virtual function directy?
+7. Suppose that a class A are uses B,C,D,E as a base class.. B,C,D,E has virtual destructors. Class A has a non-virtual destructor.. Now a new class X uses class A
+as a base? Will class X gets if an object that uses X gets deleted? 
+8. How does a computer allocate memory for a running application behind the scenes?
+
+9. Does leak occurrs if exception get passed out of destructors?
