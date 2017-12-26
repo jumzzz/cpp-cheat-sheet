@@ -23,4 +23,6 @@ gets deleted?
 
 13. What does implicit vs explicit in C++ means?
 
-14. Difference with Stack VS Heap
+14. Difference with Stack VS Heap? What are they by the way?
+
+15. What does && or "Ref-Ref" means?
