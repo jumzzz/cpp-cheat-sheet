@@ -22,3 +22,5 @@ gets deleted?
 12. How does copy assignment and copy constructor differs in overall functionality?
 
 13. What does implicit vs explicit in C++ means?
+
+14. Difference with Stack VS Heap
