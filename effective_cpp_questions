@@ -1,0 +1,47 @@
+Item 35: Consider Alternative to Virtual Functions
+
+1. how to make a function pointer
+2. what is strategy pattern
+   a) With function pointer
+   b) With tr1::function
+3. Is there Modern C++ alternative to tr1::function
+
+Item 36: Never redefine non-virtual functions to derived classes
+1. What is statically bound VS dynamically bound
+
+Item 37: Do not change derived functions default parameters
+
+Item 38: Model "has-a" or "is-implemented-in-terms-of" through composition
+
+Item 39: Use Private Inheritance Judiciously
+1. What are the legitimate situations that require's private inheritance.
+
+Item 40: Use Multiple Inheritance Judiciously
+1. Suppose that class Z has a base class of class X and Y. We know that by
+default, the constructor or the base class precedes the instantiation of 
+the derived class..
+
+Now we have
+
+
+class Z : public X, public Y
+
+Which of the constructor executes first? X or Y?
+
+2. What's the difference between abstract class VS concrete class?
+
+
+
+Item 42: Understand the two meanings of typename
+1. What's the difference between these two
+    a) typedef <class T>
+    b) typedef <typename T>
+
+Item 43: Know how to access names in templatized class
+????
+1. What's total template specialization?
+
+
+Item 44: Factor parameter-independent code out of templates
+1. Does Templates generates multiple classes and multiple functions?
+2. 
