@@ -8,3 +8,6 @@ Link: http://www.artima.com/cppsource/codefeaturesP.html
 
 Books: 
 Modern C++ Design: Generic Programming and Design Patterns Applied
+
+
+STACK VS HEAP: https://techdifferences.com/difference-between-stack-and-heap.html
