@@ -13,4 +13,5 @@ Modern C++ Design: Generic Programming and Design Patterns Applied
 STACK VS HEAP: https://techdifferences.com/difference-between-stack-and-heap.html
 
 For Pointers: https://www.ntu.edu.sg/home/ehchua/programming/cpp/cp4_PointerReference.html
-
+http://www.informit.com/content/images/020163371x/supplements/Exception_
+Handling_Article.html
