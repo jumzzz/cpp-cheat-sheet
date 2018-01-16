@@ -18,3 +18,5 @@ Handling_Article.html
 
 What every programmer should know about memory, Part 1
 https://lwn.net/Articles/250967/
+
+Memory Order: http://en.cppreference.com/w/cpp/atomic/memory_order#Release-Acquire_ordering
