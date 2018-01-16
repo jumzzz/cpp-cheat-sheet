@@ -20,3 +20,5 @@ What every programmer should know about memory, Part 1
 https://lwn.net/Articles/250967/
 
 Memory Order: http://en.cppreference.com/w/cpp/atomic/memory_order#Release-Acquire_ordering
+
+David Goldberg's classic paper “What Every Computer Scientist Should Know About Floating-Point Arithmetic” [goldberg].
