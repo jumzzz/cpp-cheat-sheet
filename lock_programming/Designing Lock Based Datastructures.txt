@@ -1,0 +1,117 @@
+
+ I. On making Thread-safe and Concurrent Data Structures...   
+    
+    Basics on making a thread-safe data structure...
+    
+    What is thread-safe data structure anyway?
+    - A data-structure is said to be thread-safe if 
+      it retains its invariance and no data is corrupted/lost
+      while interacting with different threads.
+      
+    Basic advice in making a thread safe data structure..
+    
+    1. Ensure that no thread can see a state where the invariants
+       of the data structure have been broken by the actions of 
+       another thread.
+       
+       Only means that:
+       - Avoid external pointers for its private members -- something
+         that's passable to another thread.
+       - During modification (i.e. vector's push_back when capacity 
+         limit was reached) invariants gets broken behind the scenes.
+         If this was the case, it must be ensured that other threads
+         doesn't have access with that data structure. And that's why
+         you have to lock it.
+    
+    2. Take care to avoid race conditions inherent in the interface
+       to the data structure by providing functions for complete
+       operations rather than for operation steps.
+       
+       - One example here is when two threads are doing an 
+         update()/remove() of in a shared data simultaneously
+         this can lead to unexpected modifications which can
+         result in an inconsistent behavior of your code.
+         
+       - Encapsulating complete operations for your interface 
+         will minimize the probability of your data structure
+         messing up.
+         
+     3. Pay attention to how the data structure behaves in the 
+        presence of exceptions to ensure that the invariants
+        are not broken.
+        
+        - There are instances that a data structure you're using
+          might not be exception-safe and simultaneous access
+          to a data structure has chances of throwing of an exception
+          if not done right. Hence, it's important to know its behavior..
+          Just like how every single code you're using...
+
+        - This also strongly emphasizes the need for RAII based 
+          lock/unlock mechanism in order to ensure that your
+          mutex will be unlocked without worrying that exceptions
+          might be thrown before reaching the unlock. (In case of 
+          manual lock/unlock).
+          
+    4. Minimize the opportunities for deadlock when using the data structure
+       by restricting the scope of locks and avoiding nested
+       - Deadlocks can be nasty bitch.
+       - Use raii based lock_guard and its variants to guarantee
+         unlocks in the future.
+               
+
+
+   How to enable genuine concurrent access...
+   
+   1. Can the scope of locks be restricted to allow some parts of 
+      an operation to be performed outside the lock?
+   
+   2. Can different parts of the data structure be protected
+      with different mutexes?
+      - Seriously though? Too many mutexes? That's really
+        prone to deadlocks. It increases your chance of 
+        generating more error prone code..
+      
+   3. Do all operations require the same level of protection?
+      - Operations that simply read don't require protection.
+        Operations that uses write does certainly requires
+        protection.
+   
+   4. Can a simple change to the data structure improve the opportunities
+      for concurrency without affecting the operational semantics?   
+   
+    
+   Guided by a single idea: How can you minimize the amount of serialization
+   that must occur and enable the greatest amount of true concurrency.
+   
+   Serialization: A1 -> A2 -> A3 -> ... An 
+                  - Every proceeding process is dependent on preceeding
+                    process.
+   Concurrency: Different processes (Threads) are independent of each other
+               and can function simultaneously (concurrently)
+   
+   
+  II. Lock-based Concurrent Data Structures:
+      Ensuring that the right mutex is locked when accessing the data and ensuring that
+      the lock is held for minimum amount of time.
+
+        1) The amount of locks is directly proportional to safely protecting the data
+           that you want to be protected from other threads...
+        2) The amount of locks is directly proportional to the probability of deadlock...
+
+
+      Code Example from page 151 to 152 (Listing 6.1 A class definition for a
+      thread-safe stack)
+
+      1) Avoids copy assignment.
+         Reason: 
+
+      2) Starts the read/write operation by invoking a lock.
+         Reason 1 : Ensures that the data that will be read after the successful write operation.
+         Reason 2 : To protect the data structure from being misread by outside threads.
+
+     The code on Listing 6.1 does contains a mutex for safely modifying stack through push and pop. The only thing that's not
+     safe is the constructor/destructor part. It's not a good idea
+     to call a partially constructed object which can happen if the code for Listing 6.1 was being accessed by multiple threads. And the code for Listing 6.1 does not provide a safety mechanism for this scenario.
+
+
+
