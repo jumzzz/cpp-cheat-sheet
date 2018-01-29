@@ -26,3 +26,7 @@ gets deleted?
 14. Difference with Stack VS Heap? What are they by the way?
 
 15. What does && or "Ref-Ref" means?
+
+16. How to write your own reference counter? 
+
+17. How to implement your own allocator?
