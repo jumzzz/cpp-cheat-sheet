@@ -30,3 +30,5 @@ gets deleted?
 16. How to write your own reference counter? 
 
 17. How to implement your own allocator?
+
+18. What's the difference between const Type vs Type const?
