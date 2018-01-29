@@ -32,3 +32,5 @@ gets deleted?
 17. How to implement your own allocator?
 
 18. What's the difference between const Type vs Type const?
+
+19. What happens with a private destructor.
