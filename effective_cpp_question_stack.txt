@@ -34,3 +34,5 @@ gets deleted?
 18. What's the difference between const Type vs Type const?
 
 19. What happens with a private destructor?
+
+20. What is a machine word?
