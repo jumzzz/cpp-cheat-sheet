@@ -54,3 +54,8 @@ gets deleted?
 28. Difference between concurrency and process?
 
 29. Kinds of problem where GPU are computationally good at?
+
+30. When to choose between pipeline VS Dividing data on smaller segments.
+
+31. What's the difference between threads that shares the same core VS threads that runs on different cores? 
+  How significant they are when it comes to performance?
