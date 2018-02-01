@@ -36,3 +36,19 @@ gets deleted?
 19. What happens with a private destructor?
 
 20. What is a machine word?
+
+21. What is a core?
+
+22. What is Processor?
+
+23. What is GPU?
+
+24. What is CPU?
+
+25. What is Cache?
+
+26. What is concurrency?
+
+27. What is Thread?
+
+28. Difference between concurrency and process?
