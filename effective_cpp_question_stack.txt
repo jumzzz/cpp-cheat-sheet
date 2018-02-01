@@ -52,3 +52,5 @@ gets deleted?
 27. What is Thread?
 
 28. Difference between concurrency and process?
+
+29. Kinds of problem where GPU are computationally good at?
