@@ -59,3 +59,5 @@ gets deleted?
 
 31. What's the difference between threads that shares the same core VS threads that runs on different cores? 
   How significant they are when it comes to performance?
+
+32. What is oversubscription
