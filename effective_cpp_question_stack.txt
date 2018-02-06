@@ -61,3 +61,5 @@ gets deleted?
   How significant they are when it comes to performance?
 
 32. What is oversubscription
+
+33. What are I/O bounds? CPU bounds? Bounds in Computing?? (Is this even a question)
